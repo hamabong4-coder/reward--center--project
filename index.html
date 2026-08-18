@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>🎁 Surprise Reward</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  padding: 50px 15px;
+}
+
+.box {
+  max-width: 350px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+.logo {
+  font-size: 60px;
+}
+
+h1 {
+  color: #333;
+}
+
+p {
+  color: #666;
+}
+
+.link {
+  background: #f1f3ff;
+  color: #5b4bdb;
+  padding: 12px;
+  border-radius: 8px;
+  margin: 18px 0;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+input {
+  width: 92%;
+  padding: 13px;
+  margin: 7px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+}
+
+button {
+  width: 94%;
+  padding: 14px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 9px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.open {
+  background: linear-gradient(90deg,#ff9800,#ff5722);
+}
+
+.signin {
+  background: linear-gradient(90deg,#2575fc,#6a11cb);
+}
+
+.claim {
+  background: linear-gradient(90deg,#00b09b,#96c93d);
+}
+
+.try {
+  background: linear-gradient(90deg,#ff416c,#ff4b2b);
+}
+
+.reward {
+  background: linear-gradient(135deg,#fff7c2,#fff);
+  border: 3px solid #ffd700;
+}
+
+.prank {
+  background: linear-gradient(135deg,#ffe0e9,#fff);
+  border: 3px solid #ff416c;
+}
+
+.amount {
+  color: #00a86b;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<div class="box" id="intro">
+
+  <div class="logo">🎁</div>
+
+  <h1>You've Been Selected!</h1>
+
+  <p>
+    May special surprise reward na naghihintay sa'yo! 👀
+  </p>
+
+  <div class="link">
+    🎁 reward-center.example/redeem
+  </div>
+
+  <button class="open" onclick="openReward()">
+    🎁 OPEN REWARD
+  </button>
+
+</div>
+
+
+<!-- SIGN IN -->
+<div class="box hidden" id="login">
+
+  <div class="logo">🔐</div>
+
+  <h1>Reward Sign In</h1>
+
+  <p>Sign in para makita ang reward mo.</p>
+
+  <input
+    id="username"
+    type="text"
+    placeholder="Username"
+  >
+
+  <input
+    id="password"
+    type="password"
+    placeholder="Password"
+  >
+
+  <button class="signin" onclick="login()">
+    🔓 SIGN IN
+  </button>
+
+</div>
+
+
+<!-- REWARD -->
+<div class="box reward hidden" id="reward">
+
+  <div class="logo">🎉</div>
+
+  <h1>CONGRATULATIONS!</h1>
+
+  <p>Ang mystery reward mo ay:</p>
+
+  <div class="amount">
+    ₱10,000 💰
+  </div>
+
+  <div class="link">
+    🎟️ REWARD-2026
+  </div>
+
+  <button class="claim" onclick="claim()">
+    🎁 CLAIM REWARD
+  </button>
+
+</div>
+
+
+<!-- PRANK -->
+<div class="box prank hidden" id="prank">
+
+  <div class="logo">😭🤣</div>
+
+  <h1>HAHAHAHA!</h1>
+
+  <h2>AKALA MO MAY ₱10,000 KA NA? 💸</h2>
+
+  <p style="font-size:20px;">
+    WALA BROOO 😭
+  </p>
+
+  <p>
+    <b>PRANK LANG 'TO! 🤣🤣🤣</b>
+  </p>
+
+  <p>
+    Bawi ka na lang sa susunod. 😭
+  </p>
+
+  <button class="try" onclick="location.reload()">
+    🔄 ULITIN ANG KALOKOHAN
+  </button>
+
+</div>
+
+
+<script>
+
+function hideAll() {
+  document.getElementById("intro").classList.add("hidden");
+  document.getElementById("login").classList.add("hidden");
+  document.getElementById("reward").classList.add("hidden");
+  document.getElementById("prank").classList.add("hidden");
+}
+
+function openReward() {
+  hideAll();
+  document.getElementById("login").classList.remove("hidden");
+}
+
+function login() {
+
+  const username =
+    document.getElementById("username").value;
+
+  if (username.trim() === "") {
+    alert("Enter your username muna 😂");
+    return;
+  }
+
+  hideAll();
+
+  document.getElementById("reward")
+    .classList.remove("hidden");
+}
+
+function claim() {
+
+  hideAll();
+
+  document.getElementById("prank")
+    .classList.remove("hidden");
+}
+
+</script>
+
+</body>
+</html>
